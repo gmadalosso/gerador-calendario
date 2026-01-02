@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
-{% block title %}Calendário{% endblock %}
+{% block title %}Calendário {{ year }}{% endblock %}
 
 {% block content %}
     <h1>Gerador de Calendário</h1>
-    <p>Aplicação funcionando com templates.</p>
+    <p>Ano selecionado: <strong>{{ year }}</strong></p>
 {% endblock %}
