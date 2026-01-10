@@ -23,10 +23,12 @@ from app.services.feriados_service import (buscar_feriados_nacionais, buscar_fer
 from app.services.fases_lua_service import gerar_fases_lua_ano
 
 router = APIRouter()
-templates = Jinja2Templates(directory="app/templates")
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+TEMPLATES_DIR = BASE_DIR / "app" / "templates"
 STATIC_DIR = BASE_DIR / "app" / "static"
+
+templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
 
 
 async def _preparar_dados_calendario(ano: int, inicio_semana: InicioSemana, uf: str | None, mostrar_fases_lua: bool):
