@@ -3,8 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Gerador de Calendário{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <link rel="alternate icon" href="/static/images/favicon.svg">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1 0 auto;
+        }
+        footer {
+            flex-shrink: 0;
+        }
+    </style>
 </head>
 <body>
-    {% block content %}{% endblock %}
+
+    <header class="border-bottom" style="background-color: #264d99;">
+        <div class="container-fluid px-4">
+            <div class="d-flex flex-wrap align-items-center justify-content-between py-3">
+                
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <span class="fs-4 fw-semibold">Gerador de Calendário 🗓️</span>
+                </a>
+
+                <div class="d-flex gap-2">
+                    <a href="/" class="btn btn-light btn-sm">Início</a>
+                    <a href="/sobre" class="btn btn-outline-light btn-sm">Sobre</a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container mb-5">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="border-top py-4 mt-5">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="text-muted">
+                    © {{ now().year if now is defined else "2026" }} Gerador de Calendário
+                </span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mb-0">
+
+                <!-- GitHub -->
+                <li class="ms-3">
+                    <a
+                        class="text-muted"
+                        href="https://github.com/gmadalosso"
+                        target="_blank"
+                        aria-label="GitHub"
+                    >
+                        <i class="bi bi-github fs-4"></i>
+                    </a>
+                </li>
+
+                <!-- LinkedIn -->
+                <li class="ms-3">
+                    <a
+                        class="text-muted"
+                        href="https://www.linkedin.com/in/gmadalosso"
+                        target="_blank"
+                        aria-label="LinkedIn"
+                    >
+                        <i class="bi bi-linkedin fs-4"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </footer>
+
 </body>
 </html>
