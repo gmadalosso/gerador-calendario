@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendário {{ ano }}</title>
+    <style>
+{{ css_content | safe }}
+    </style>
+</head>
+<body>
+
+    <div class="calendario-container">
+        {% for mes in calendario %}
+            <div class="mes-container {% if mes.semanas|length == 6 %}seis-semanas{% endif %}">
+                <div class="mes-titulo-container">
+                    <div class="mes-ano-linha">
+                        <span class="mes-ano">{{ ano }}</span>
+                        <span class="mes-linha-esquerda"></span>
+                    </div>
+                    <h2 class="mes-titulo">{{ mes.nome_mes }}</h2>
+                    <div class="mes-ano-linha">
+                        <span class="mes-linha-direita"></span>
+                        <span class="mes-ano">{{ ano }}</span>
+                    </div>
+                </div>
+
+                <!-- Tabela do calendário -->
+                <table class="calendario-table">
+                    <thead>
+                        <tr>
+                            {% if mostrar_contagem_semanas %}
+                                <th class="calendario-week-header"></th>
+                            {% endif %}
+                            {% for d in dias_semana %}
+                                <th class="calendario-header">{{ d }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for semana in mes.semanas %}
+                            <tr>
+                                {% if mostrar_contagem_semanas %}
+                                    <td class="calendario-week-cell">
+                                        {% if semana.numero_semana %}
+                                            <span class="calendario-week-number">{{ semana.numero_semana }}</span>
+                                        {% endif %}
+                                    </td>
+                                {% endif %}
+                                {% for dia in semana.dias %}
+                                    <td class="calendario-cell
+                                        {% if dia.feriado or dia.marcador_domingo %} dia-especial {% endif %}
+                                    ">
+                                        <div class="calendario-cell-inner">
+                                            {% if dia.dia %}
+                                                <span class="calendario-day-number">{{ dia.dia }}</span>
+                                                {% if mostrar_contagem_dias_ano and dia.dia_do_ano %}
+                                                    <span class="calendario-day-of-year">{{ dia.dia_do_ano }}</span>
+                                                {% endif %}
+                                            {% elif dia.mes_adjacente and dia.dia_mes_adjacente %}
+                                                <span class="calendario-day-number calendario-day-adjacent">{{ dia.dia_mes_adjacente }}</span>
+                                            {% endif %}
+                                        </div>
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <!-- ========================= -->
+                <!-- FASES DA LUA (LINHA) -->
+                <!-- ========================= -->
+                {% set fases_lua_mes = [] %}
+                {% for semana in mes.semanas %}
+                    {% for dia in semana.dias %}
+                        {% if dia.fase_lua %}
+                            {% set _ = fases_lua_mes.append(dia) %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+
+                {% if fases_lua_mes %}
+                    <div class="fases-lua-linha">
+                        {% for dia in fases_lua_mes %}
+                            {% set emoji = "" %}
+                            {% if dia.fase_lua == "Lua Nova" %}
+                                {% set emoji = "🌑" %}
+                            {% elif dia.fase_lua == "Quarto Crescente" %}
+                                {% set emoji = "🌗" %}
+                            {% elif dia.fase_lua == "Lua Cheia" %}
+                                {% set emoji = "🌕" %}
+                            {% elif dia.fase_lua == "Quarto Minguante" %}
+                                {% set emoji = "🌓" %}
+                            {% endif %}
+                            <span class="fase-lua-item">{{ dia.dia }} {{ emoji }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <!-- ========================= -->
+                <!-- LISTA DE FERIADOS -->
+                <!-- ========================= -->
+                {% set feriados_mes = [] %}
+                {% for semana in mes.semanas %}
+                    {% for dia in semana.dias %}
+                        {% if dia.feriado %}
+                            {% set _ = feriados_mes.append(dia) %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+
+                {% if feriados_mes %}
+                    <div class="feriados-linha">
+                        <div class="feriados-titulo">Feriados:</div>
+                        <div class="feriados-conteudo">
+                            {% for dia in feriados_mes %}
+                                <span class="feriado-item">
+                                    • {{ "%02d"|format(dia.dia) }} - {{ dia.feriado.nome }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
+
