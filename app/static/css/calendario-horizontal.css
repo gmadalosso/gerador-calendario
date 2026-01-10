@@ -1,0 +1,352 @@
+/* =========================
+   ESTILOS PARA PDF (A4 LANDSCAPE)
+   ========================= */
+
+@page {
+    size: A4 landscape;
+    margin: 8mm 8mm 8mm 8mm;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.4;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.calendario-container {
+    width: 100%;
+}
+
+.mes-container {
+    margin-bottom: 0;
+    page-break-inside: avoid;
+    page-break-before: always;
+}
+
+.mes-container:first-child {
+    page-break-before: auto;
+}
+
+.mes-titulo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 4mm 0;
+    position: relative;
+}
+
+.mes-ano-linha {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.mes-ano {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #616161;
+    white-space: nowrap;
+}
+
+.mes-linha-esquerda {
+    flex: 1;
+    height: 1pt;
+    background-color: #616161;
+    margin-left: 2mm;
+    margin-right: 2mm;
+}
+
+.mes-linha-direita {
+    flex: 1;
+    height: 1pt;
+    background-color: #616161;
+    margin-left: 2mm;
+    margin-right: 2mm;
+}
+
+.mes-titulo {
+    font-size: 16pt;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 3mm;
+    border: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    background-color: white;
+    z-index: 1;
+}
+
+/* =========================
+   TABELA DO CALENDÁRIO
+   ========================= */
+
+.calendario-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: none;
+    margin-bottom: 3mm;
+    table-layout: fixed;
+    overflow: hidden;
+    border-radius: 10pt;
+}
+
+/* Cabeçalho da coluna de semanas */
+.calendario-week-header {
+    background-color: white;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    padding: 2.5mm 1mm;
+    width: 8mm;
+    font-size: 9pt;
+}
+
+/* Cabeçalho dos dias */
+.calendario-header {
+    background-color: #c0c0c0;
+    border: 0.25pt solid #616161;
+    text-align: center;
+    font-weight: bold;
+    padding: 2.5mm 1mm;
+    width: auto;
+    font-size: 9pt;
+}
+
+/* Bordas externas - Top (1pt) */
+thead tr th.calendario-header {
+    border-top-width: 1pt;
+    border-bottom-width: 0.25pt;
+}
+
+/* Bordas externas - Left (1pt) - Primeiro cabeçalho */
+thead tr th.calendario-header:first-of-type,
+thead tr th.calendario-week-header + th.calendario-header {
+    border-left-width: 1pt;
+}
+
+/* Bordas internas - Right (entre cabeçalhos, não externas) */
+thead tr th.calendario-header:not(:last-of-type) {
+    border-right-width: 0.25pt;
+}
+
+/* Bordas externas - Right (1pt) - Último cabeçalho */
+thead tr th.calendario-header:last-of-type {
+    border-right-width: 1pt;
+}
+
+/* Bordas arredondadas nos cantos superiores */
+thead tr th.calendario-header:first-of-type {
+    border-top-left-radius: 10pt;
+}
+
+/* Quando há coluna de semanas, o primeiro calendario-header é o segundo filho */
+thead tr th.calendario-week-header + th.calendario-header {
+    border-top-left-radius: 10pt;
+}
+
+thead tr th.calendario-header:last-of-type {
+    border-top-right-radius: 10pt;
+}
+
+/* Célula da semana */
+.calendario-week-cell {
+    border: none;
+    padding: 0;
+    position: relative;
+    width: 8mm;
+    vertical-align: middle;
+    height: 25mm;
+    background-color: white;
+    text-align: center;
+}
+
+.calendario-week-number {
+    font-weight: normal;
+    font-size: 8pt;
+    color: #333;
+}
+
+/* Célula do dia */
+.calendario-cell {
+    border: 0.25pt solid #616161;
+    padding: 0;
+    position: relative;
+    width: auto;
+    vertical-align: top;
+    height: 25mm;
+    background-color: white;
+}
+
+/* Bordas externas - Left (1pt) - Primeira célula de dia */
+tbody tr td.calendario-cell:first-of-type,
+tbody tr td.calendario-week-cell + td.calendario-cell {
+    border-left-width: 1pt;
+}
+
+/* Bordas internas - Right (entre células, não externas) */
+tbody tr td.calendario-cell:not(:last-of-type) {
+    border-right-width: 0.25pt;
+}
+
+/* Bordas externas - Right (1pt) - Última célula */
+tbody tr td.calendario-cell:last-of-type {
+    border-right-width: 1pt;
+}
+
+/* Bordas internas - Bottom (entre linhas, não externas) */
+tbody tr:not(:last-child) td.calendario-cell {
+    border-bottom-width: 0.25pt;
+}
+
+/* Bordas externas - Bottom (1pt) - Última linha */
+tbody tr:last-child td.calendario-cell {
+    border-bottom-width: 1pt;
+}
+
+/* Bordas arredondadas nas células dos cantos inferiores */
+tbody tr:last-child td.calendario-cell:first-of-type {
+    border-bottom-left-radius: 10pt;
+}
+
+/* Quando há coluna de semanas, a primeira célula de dia é a segunda célula */
+tbody tr:last-child td.calendario-week-cell + td.calendario-cell {
+    border-bottom-left-radius: 10pt;
+}
+
+tbody tr:last-child td.calendario-cell:last-of-type {
+    border-bottom-right-radius: 10pt;
+}
+
+/* Quando o mês tem 6 semanas, reduzir altura das células */
+.mes-container.seis-semanas .calendario-cell {
+    height: 23mm;
+}
+
+.mes-container.seis-semanas .calendario-week-cell {
+    height: 23mm;
+}
+
+/* Célula de domingo e feriado */
+.calendario-cell.dia-especial {
+    background-color: #e0e0e0;
+}
+
+/* Container interno da célula */
+.calendario-cell-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Número do dia */
+.calendario-day-number {
+    position: absolute;
+    top: 2mm;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 12pt;
+    text-align: center;
+    
+}
+
+/* Números dos dias de feriados e domingos em vermelho */
+.calendario-cell.dia-especial .calendario-day-number {
+    color: #dc3545;
+}
+
+/* Números dos dias dos meses adjacentes em cinza */
+.calendario-day-adjacent {
+    color: #999 !important;
+    font-weight: 400;
+}
+
+/* Dia do ano */
+.calendario-day-of-year {
+    position: absolute;
+    top: 7mm;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 400;
+    font-size: 7pt;
+    text-align: center;
+    color: #666;
+}
+
+/* =========================
+   LISTA DE EVENTOS
+   ========================= */
+
+.eventos-lista {
+    margin-top: 4mm;
+    margin-bottom: 3mm;
+}
+
+.eventos-titulo {
+    font-size: 11pt;
+    font-weight: bold;
+    margin: 0 0 2mm 0;
+    color: #333;
+}
+
+.eventos-lista-itens {
+    margin: 0;
+    padding-left: 5mm;
+    list-style-type: disc;
+    font-size: 9pt;
+}
+
+.eventos-lista-itens li {
+    margin-bottom: 1mm;
+}
+
+/* =========================
+   FERIADOS (LINHA)
+   ========================= */
+
+.feriados-linha {
+    margin-top: 2mm;
+    margin-bottom: 2mm;
+    font-size: 10pt;
+    line-height: 1.3;
+}
+
+.feriados-titulo {
+    font-weight: bold;
+    margin-bottom: 0.5mm;
+}
+
+.feriados-conteudo {
+    text-align: left;
+}
+
+.feriado-item {
+    margin-left: 2mm;
+    white-space: nowrap;
+}
+
+/* =========================
+   FASES DA LUA (LINHA)
+   ========================= */
+
+.fases-lua-linha {
+    margin-top: 2mm;
+    margin-bottom: 2mm;
+    text-align: right;
+    font-size: 10pt;
+}
+
+.fase-lua-item {
+    margin-left: 4mm;
+    white-space: nowrap;
+}
+
