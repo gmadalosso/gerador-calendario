@@ -1,0 +1,88 @@
+{
+  "AC": [
+    { "data": "15-08", "nome": "Adesão do Grão-Pará à Independência do Brasil" }
+  ],
+  "AL": [
+    { "data": "24-06", "nome": "Dia de São João" },
+    { "data": "29-06", "nome": "São Pedro" },
+    { "data": "16-09", "nome": "Emancipação de Alagoas" }
+  ],
+  "AP": [
+    { "data": "19-03", "nome": "Dia de São José" },
+    { "data": "15-05", "nome": "Dia do Amapá" }
+  ],
+  "AM": [
+    { "data": "05-09", "nome": "Aniversário do Amazonas" },
+    { "data": "08-12", "nome": "Nossa Senhora da Conceição" }
+  ],
+  "BA": [
+    { "data": "02-07", "nome": "Independência da Bahia" }
+  ],
+  "CE": [
+    { "data": "19-03", "nome": "Dia de São José" },
+    { "data": "25-03", "nome": "Data Magna do Ceará" }
+  ],
+  "DF": [
+    { "data": "21-04", "nome": "Fundação de Brasília" }
+  ],
+  "ES": [
+    { "data": "17-04", "nome": "Nossa Senhora da Penha" }
+  ],
+  "GO": [
+    { "data": "26-07", "nome": "Aniversário de Goiânia" }
+  ],
+  "MA": [
+    { "data": "28-07", "nome": "Adesão do Maranhão à Independência" }
+  ],
+  "MT": [],
+  "MS": [
+    { "data": "11-10", "nome": "Criação do Mato Grosso do Sul" }
+  ],
+  "MG": [
+    { "data": "21-04", "nome": "Data Magna de Minas Gerais" }
+  ],
+  "PA": [
+    { "data": "15-08", "nome": "Adesão do Grão-Pará à Independência do Brasil" }
+  ],
+  "PB": [
+    { "data": "05-08", "nome": "Aniversário da Paraíba" }
+  ],
+  "PR": [
+    { "data": "19-12", "nome": "Emancipação Política do Paraná" }
+  ],
+  "PE": [
+    { "data": "06-03", "nome": "Revolução Pernambucana" },
+    { "data": "24-06", "nome": "São João" }
+  ],
+  "PI": [
+    { "data": "19-10", "nome": "Dia do Piauí" }
+  ],
+  "RJ": [
+    { "data": "23-04", "nome": "Dia de São Jorge" }
+  ],
+  "RN": [
+    { "data": "03-10", "nome": "Santos Mártires de Cunhaú e Uruaçu" }
+  ],
+  "RS": [
+    { "data": "20-09", "nome": "Revolução Farroupilha" }
+  ],
+  "RO": [
+    { "data": "04-01", "nome": "Criação de Rondônia" },
+    { "data": "18-06", "nome": "Dia do Evangélico" }
+  ],
+  "RR": [
+    { "data": "05-10", "nome": "Criação de Roraima" }
+  ],
+  "SC": [
+    { "data": "11-08", "nome": "Data Magna de Santa Catarina" }
+  ],
+  "SP": [
+    { "data": "09-07", "nome": "Revolução Constitucionalista de 1932" }
+  ],
+  "SE": [
+    { "data": "08-07", "nome": "Dia da Emancipação Sergipana" }
+  ],
+  "TO": [
+    { "data": "18-03", "nome": "Dia de Autonomia do Tocantins" }
+  ]
+}
