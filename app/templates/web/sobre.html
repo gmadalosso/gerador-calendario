@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}Sobre - Gerador de Calendário{% endblock %}
+
+{% block content %}
+
+<div class="card card-body mt-5 mb-5 shadow-sm">
+    <h1 class="mb-4">Sobre o Gerador de Calendário</h1>
+    
+    <div class="row">
+        <div class="col-lg-8">
+            <h3 class="mb-3">O que é?</h3>
+            <p class="lead">
+                O Gerador de Calendário é uma ferramenta web que permite criar calendários personalizados em formato PDF,
+                prontos para impressão. Você pode escolher o ano, a orientação da página, incluir feriados nacionais e estaduais,
+                fases da lua, contagem de semanas e dias do ano.
+            </p>
+
+            <h3 class="mb-3 mt-5">Funcionalidades</h3>
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item">
+                    <i class="bi bi-calendar-check me-2"></i>
+                    <strong>Calendários personalizados:</strong> Escolha o ano desejado (1900-2200)
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-arrow-left-right me-2"></i>
+                    <strong>Orientacao flexível:</strong> Vertical (retrato) ou horizontal (paisagem)
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-calendar-event me-2"></i>
+                    <strong>Feriados:</strong> Feriados nacionais e opcionalmente feriados estaduais
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-moon-stars me-2"></i>
+                    <strong>Fases da lua:</strong> Visualize as fases da lua diretamente no calendário
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-calendar-week me-2"></i>
+                    <strong>Contagem de semanas:</strong> Opção para mostrar o número da semana
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-123 me-2"></i>
+                    <strong>Dia do ano:</strong> Veja a contagem de dias do ano para cada data
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-download me-2"></i>
+                    <strong>Download em PDF:</strong> Gere e baixe seu calendário em formato PDF
+                </li>
+            </ul>
+
+            <h3 class="mb-3 mt-5">Aplicação independente de serviços externos</h3>
+            <p>
+                Esta aplicação não depende de APIs externas. Todos os cálculos são feitos localmente no servidor, incluindo:
+            </p>
+            <ul>
+                <li>Cálculo automático da data da Páscoa e feriados móveis (Carnaval, Sexta-feira Santa, Corpus Christi)</li>
+                <li>Feriados nacionais fixos armazenados localmente</li>
+                <li>Cálculo preciso das fases da lua usando algoritmos astronômicos</li>
+            </ul>
+            <p>
+                Isso garante que a aplicação funcione para qualquer ano (1900-2200) sem depender de serviços externos.
+            </p>
+
+            <h3 class="mb-3 mt-5">Código do Projeto</h3>
+            <p>
+                O código-fonte completo deste projeto está disponível no GitHub.
+                Você pode visualizar em:
+            </p>
+            <p>
+                <a href="https://github.com/gmadalosso/Gerador-Calendario" target="_blank" class="btn btn-outline-primary">
+                    <i class="bi bi-github me-2"></i>
+                    Ver código no GitHub
+                </a>
+            </p>
+
+            <h3 class="mb-3 mt-5">Tecnologias</h3>
+            <p>
+                Esta aplicação foi desenvolvida usando:
+            </p>
+            <ul>
+                <li><strong>FastAPI</strong> - Framework web moderno e rápido para Python</li>
+                <li><strong>WeasyPrint</strong> - Geração de PDFs a partir de HTML/CSS</li>
+                <li><strong>Bootstrap 5</strong> - Framework CSS para interface responsiva</li>
+                <li><strong>PyEphem</strong> - Cálculo preciso das fases da lua</li>
+                <li><strong>Algoritmo de Meeus/Jones/Butcher</strong> - Cálculo da data da Páscoa</li>
+            </ul>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="bi bi-info-circle me-2"></i>
+                        Informações
+                    </h5>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            Versão: 1.0.0<br>
+                            Janeiro de 2026
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 pt-4 border-top">
+        <h3 class="mb-3">Contato</h3>
+        <p>
+            Código desenvolvido por Gabriela Madalosso. Para entrar em contato, acesse o 
+            <a href="https://www.linkedin.com/in/gmadalosso" target="_blank" rel="noopener noreferrer">LinkedIn</a> ou o
+            <a href="https://github.com/gmadalosso" target="_blank" rel="noopener noreferrer">GitHub</a>.
+        </p>
+    </div>
+</div>
+
+{% endblock %}
+
