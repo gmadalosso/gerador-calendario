@@ -1,6 +1,6 @@
 fastapi
 uvicorn
 jinja2
-httpx
 weasyprint
+pyephem
 python-dotenv
