@@ -21,13 +21,13 @@ MAPA_INICIO_SEMANA = {
 }
 
 COLUNAS_DIAS_SEMANA = {
-    InicioSemana.SEGUNDA.value: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
-    InicioSemana.TERCA.value: ["Ter", "Qua", "Qui", "Sex", "Sáb", "Dom", "Seg"],
-    InicioSemana.QUARTA.value: ["Qua", "Qui", "Sex", "Sáb", "Dom", "Seg", "Ter"],
-    InicioSemana.QUINTA.value: ["Qui", "Sex", "Sáb", "Dom", "Seg", "Ter", "Qua"],
-    InicioSemana.SEXTA.value: ["Sex", "Sáb", "Dom", "Seg", "Ter", "Qua", "Qui"],
-    InicioSemana.SABADO.value: ["Sáb", "Dom", "Seg", "Ter", "Qua", "Qui", "Sex"],
-    InicioSemana.DOMINGO.value: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+    InicioSemana.SEGUNDA.value: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
+    InicioSemana.TERCA.value: ["Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo", "Segunda"],
+    InicioSemana.QUARTA.value: ["Quarta", "Quinta", "Sexta", "Sábado", "Domingo", "Segunda", "Terça"],
+    InicioSemana.QUINTA.value: ["Quinta", "Sexta", "Sábado", "Domingo", "Segunda", "Terça", "Quarta"],
+    InicioSemana.SEXTA.value: ["Sexta", "Sábado", "Domingo", "Segunda", "Terça", "Quarta", "Quinta"],
+    InicioSemana.SABADO.value: ["Sábado", "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
+    InicioSemana.DOMINGO.value: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
 }
 
 class Mes(Enum):
