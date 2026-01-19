@@ -125,33 +125,9 @@ GET /calendario/pdf?ano=2024&uf=SP&mostrar_fases_lua=1&orientacao=horizontal
 ### GET `/sobre`
 Página sobre o projeto.
 
-## 🚢 Deploy no Render
+## 🚢 Deploy
 
 O projeto está configurado para deploy no Render através do arquivo `render.yaml`.
-
-### Configuração Automática
-
-1. Conecte seu repositório GitHub ao Render
-2. O Render detectará automaticamente o arquivo `render.yaml`
-3. As configurações serão aplicadas automaticamente
-
-### Configuração Manual
-
-Se preferir configurar manualmente:
-
-1. **Build Command:**
-   ```
-   pip install -r requirements.txt
-   ```
-
-2. **Start Command:**
-   ```
-   uvicorn app.main:app --host 0.0.0.0 --port $PORT
-   ```
-
-3. **Variáveis de Ambiente no Render:**
-   - `ENVIRONMENT`: `production`
-   - `ALLOWED_ORIGINS`: (opcional) Configure com as origens necessárias
 
 ## 📁 Estrutura do Projeto
 
