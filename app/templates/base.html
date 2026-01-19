@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Gerador de Calendário{% endblock %}</title>
 
     <!-- Favicon -->
@@ -31,19 +32,56 @@
         footer {
             flex-shrink: 0;
         }
+        
+        /* versão mobile */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 1.1rem !important;
+            }
+            
+            .header-buttons {
+                flex-direction: column;
+                gap: 0.5rem !important;
+                width: 100%;
+            }
+            
+            .header-buttons .btn {
+                width: 100%;
+            }
+            
+            main.container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            footer .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            footer ul.nav {
+                justify-content: center !important;
+            }
+            
+            .card {
+                margin-top: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header class="border-bottom" style="background-color: #264d99;">
-        <div class="container-fluid px-4">
+        <div class="container-fluid px-3 px-md-4">
             <div class="d-flex flex-wrap align-items-center justify-content-between py-3">
                 
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <span class="fs-4 fw-semibold">Gerador de Calendário 🗓️</span>
+                    <span class="fs-4 fw-semibold header-title">Gerador de Calendário 🗓️</span>
                 </a>
 
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-2 header-buttons">
                     <a href="/" class="btn btn-light btn-sm">Início</a>
                     <a href="/sobre" class="btn btn-outline-light btn-sm">Sobre</a>
                 </div>
@@ -60,13 +98,13 @@
     <footer class="border-top py-4 mt-5">
         <div class="container d-flex flex-wrap justify-content-between align-items-center">
 
-            <div class="col-md-4 d-flex align-items-center">
+            <div class="col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-start mb-3 mb-md-0">
                 <span class="text-muted">
                     © {{ now().year if now is defined else "2026" }} Gerador de Calendário
                 </span>
             </div>
 
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mb-0">
+            <ul class="nav col-12 col-md-4 justify-content-center justify-content-md-end list-unstyled d-flex mb-0">
 
                 <!-- GitHub -->
                 <li class="ms-3">
