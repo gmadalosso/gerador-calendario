@@ -64,7 +64,7 @@ Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 
 ```env
 ENVIRONMENT=development
-ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000,http://localhost:8001,http://127.0.0.1:8001
+ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
 ```
 
 - **ENVIRONMENT**: Ambiente de execução (`development` ou `production`)
@@ -82,8 +82,6 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 A aplicação estará disponível em:
 - Interface web: `http://localhost:8000`
-- Documentação Swagger: `http://localhost:8000/docs`
-- Documentação ReDoc: `http://localhost:8000/redoc`
 
 ### Produção
 
@@ -135,7 +133,7 @@ O projeto está configurado para deploy no Render através do arquivo `render.ya
 Gerador-Calendario/
 ├── app/
 │   ├── core/           # Enums e validações
-│   ├── data/           # Dados estáticos (feriados estaduais)
+│   ├── data/           # Dados estáticos (feriados estaduais e nacionais)
 │   ├── middleware/     # Middlewares de segurança
 │   ├── routes/         # Rotas da aplicação
 │   ├── services/       # Lógica de negócio
