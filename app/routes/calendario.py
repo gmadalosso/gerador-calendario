@@ -245,7 +245,9 @@ async def gerar_pdf_calendario(
                 "Content-Disposition": f"inline; filename={filename}",
                 "Cache-Control": "no-cache, no-store, must-revalidate",
                 "Pragma": "no-cache",
-                "Expires": "0"
+                "Expires": "0",
+                "X-Frame-Options": "SAMEORIGIN",
+                "Content-Security-Policy": "frame-ancestors 'self'"
             }
         )
     except HTTPException:
