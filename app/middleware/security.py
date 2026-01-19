@@ -64,31 +64,18 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         ambiente = os.getenv("ENVIRONMENT", "production")
 
         resposta.headers["X-Content-Type-Options"] = "nosniff"
-
-        frame_options = "SAMEORIGIN" if ambiente == "development" else "DENY"
-        resposta.headers["X-Frame-Options"] = frame_options
-
+        resposta.headers["X-Frame-Options"] = "SAMEORIGIN"
         resposta.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
         resposta.headers["X-XSS-Protection"] = "1; mode=block"
 
-        if ambiente == "development":
-            csp = (
-                "default-src 'self'; "
-                "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; "
-                "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; "
-                "font-src 'self' https://cdn.jsdelivr.net; "
-                "img-src 'self' data:; "
-                "frame-ancestors 'self';"
-            )
-        else:
-            csp = (
-                "default-src 'self'; "
-                "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; "
-                "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; "
-                "font-src 'self' https://cdn.jsdelivr.net; "
-                "img-src 'self' data:; "
-                "frame-ancestors 'none';"
-            )
+        csp = (
+            "default-src 'self'; "
+            "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; "
+            "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; "
+            "font-src 'self' https://cdn.jsdelivr.net; "
+            "img-src 'self' data:; "
+            "frame-ancestors 'self';"
+        )
         resposta.headers["Content-Security-Policy"] = csp
         
         return resposta
