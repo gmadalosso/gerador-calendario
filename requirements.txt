@@ -4,4 +4,3 @@ jinja2
 weasyprint
 pyephem
 python-dotenv
-mangum
